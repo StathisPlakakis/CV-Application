@@ -1,12 +1,20 @@
 import '../styles/profileImage.css'
+import { useState } from 'react'
 
 
 function Profile() {
+  const [profileImageDial, setprofileImageDial] = useState(false);
+
+  const handleClickOnProfileImage = () => {
+    setprofileImageDial(!profileImageDial);
+  }
 
   return (
     <>
       <section className="profile">
-        <div className="profileImg"></div>
+        <div className="profileImg" onClick={handleClickOnProfileImage}>
+          
+        </div>
       </section>
     </>
   )
