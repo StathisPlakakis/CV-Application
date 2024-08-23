@@ -14,9 +14,23 @@ function ProfileDialog({isOpen, onClose}) {
 
   return (
     <dialog ref={dialogRef}>
-      <h2>Dialog Title</h2>
-      <p>This is the content of the dialog.</p>
-      <button onClick={onClose}>Close</button>
+      <div className='profDialHead'>
+        <h2>Profile photo</h2>
+        <button onClick={onClose}>Close</button>
+      </div>
+      <div className='profDialImage'>
+        <div className='profImg'></div>
+      </div>
+      <div className='profDialActions'>
+        <div className='add'>
+          <h3>Add photo</h3>
+          <div className='addIcon'></div>
+        </div>
+        <div className='add'>
+          <h3>Delete</h3>
+          <div className='deleteIcon'></div>
+        </div>
+      </div>
     </dialog>
   );
 }
