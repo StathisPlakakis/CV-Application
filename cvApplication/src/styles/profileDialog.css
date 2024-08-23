@@ -1,0 +1,14 @@
+dialog {
+  color-scheme: light dark; 
+  color: #213547;
+  background-color: #ffffff;
+  height: 20rem;
+  width: 20rem;
+}
+
+@media (prefers-color-scheme: light) {
+  dialog {
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+  }
+}

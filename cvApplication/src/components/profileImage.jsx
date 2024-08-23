@@ -1,20 +1,25 @@
 import '../styles/profileImage.css'
+import ProfileDialog from './profileDialog'
 import { useState } from 'react'
 
 
 function Profile() {
-  const [profileImageDial, setprofileImageDial] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  const handleClickOnProfileImage = () => {
-    setprofileImageDial(!profileImageDial);
-  }
+  const openDialog = () => {
+    setIsDialogOpen(true);
+  };
+
+  const closeDialog = () => {
+    setIsDialogOpen(false);
+  };
 
   return (
     <>
       <section className="profile">
-        <div className="profileImg" onClick={handleClickOnProfileImage}>
-          
+        <div className="profileImg" onClick={openDialog}>
         </div>
+        <ProfileDialog isOpen={isDialogOpen} onClose={closeDialog}/>
       </section>
     </>
   )
