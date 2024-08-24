@@ -16,19 +16,17 @@ function ProfileDialog({isOpen, onClose}) {
     <dialog ref={dialogRef}>
       <div className='profDialHead'>
         <h2>Profile photo</h2>
-        <button onClick={onClose}>Close</button>
+        <button onClick={onClose}></button>
       </div>
       <div className='profDialImage'>
         <div className='profImg'></div>
       </div>
       <div className='profDialActions'>
-        <div className='add'>
-          <h3>Add photo</h3>
-          <div className='addIcon'></div>
+        <div className='addImage'>
+          <button>Add photo</button>
         </div>
-        <div className='add'>
-          <h3>Delete</h3>
-          <div className='deleteIcon'></div>
+        <div className='deleteImage'>
+        <button>Delete</button>          
         </div>
       </div>
     </dialog>
