@@ -13,7 +13,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
+#root {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 
 html {
   font-size: 62.5%;
