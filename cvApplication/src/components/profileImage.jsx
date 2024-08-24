@@ -48,6 +48,7 @@ function Profile() {
           onClose={closeDialog}
           onAdd={handleImageChange}
           onDelete={handleImageDelete}
+          backgroundImage={backgroundImage}
         />
       </section>
     </>
