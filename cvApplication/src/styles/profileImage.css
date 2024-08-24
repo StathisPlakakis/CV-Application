@@ -2,7 +2,6 @@ section.profile {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 20vh;
   width: 100vw;
   position: fixed;
 }
@@ -13,6 +12,7 @@ section.profile {
   height: 13rem;
   width: 13rem;
   border-radius: 100%;
+  margin-top: 3rem;
 }
 
 @media (prefers-color-scheme: light) {
