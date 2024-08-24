@@ -5,6 +5,7 @@ import { useState } from 'react'
 
 function Profile() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [backgroundImage, setBackgroundImage] = useState(null);
 
   const openDialog = () => {
     setIsDialogOpen(true);
@@ -14,12 +15,40 @@ function Profile() {
     setIsDialogOpen(false);
   };
 
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setBackgroundImage(imageUrl);
+    }
+  };
+
+  const handleImageDelete = () => {
+    setBackgroundImage(null);
+  }
+
+
   return (
     <>
       <section className="profile">
-        <div className="profileImg" onClick={openDialog}>
+        <div 
+          className="profileImg" 
+          onClick={openDialog}
+          style={
+            {
+              backgroundImage: `url(${backgroundImage})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }
+          }
+        >
         </div>
-        <ProfileDialog isOpen={isDialogOpen} onClose={closeDialog}/>
+        <ProfileDialog 
+          isOpen={isDialogOpen} 
+          onClose={closeDialog}
+          onAdd={handleImageChange}
+          onDelete={handleImageDelete}
+        />
       </section>
     </>
   )
