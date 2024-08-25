@@ -6,6 +6,12 @@ function Info() {
 
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [firstName, setFirstName] = useState('');
+  const [laststName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+
+
+
 
   const handleClickForGeneralInfoEdit = () => {
     setIsDialogOpen(true);
@@ -19,6 +25,18 @@ function Info() {
     setFirstName(value);
   }
 
+  const handleLastNameChange = (value) => {
+    setLastName(value);
+  }
+
+  const handleEmailChange = (value) => {
+    setEmail(value);
+  }
+
+  const handlePhoneNumberChange = (value) => {
+    setPhoneNumber(value);
+  }
+
   return (
     <section className="info">
       <div className="infoHead">
@@ -30,13 +48,23 @@ function Info() {
         </button>
       </div>
       <div className='infoDetails'>
-
+        <div className='fullName'>
+          <h1>
+            {firstName !== '' ? firstName : '-'} {firstName !== '' ? firstName : '-'}
+          </h1>
+        </div>
       </div>
       <InfoDialog 
         isOpen={isDialogOpen}
         onClose={handleClickForCloseGeneralInfoEdit}
         firstName={firstName}
         onFirstNameChange={handleFirstNameChange}
+        laststName={laststName}
+        onLastNameChange={handleLastNameChange}
+        email={email}
+        onEmailChange={handleEmailChange}
+        phoneNumber={phoneNumber}
+        onPhoneNumberChange={handlePhoneNumberChange}
       />
     </section>
   )
