@@ -1,9 +1,21 @@
 import { useRef, useEffect } from "react"
 import '../styles/generalInfoDialog.css'
 
-function InfoDialog({ isOpen, onClose }) {
+function InfoDialog({ isOpen, onClose, firstName, onFirstNameChange }) {
 
   const dialogRef = useRef(null)
+
+  let first_name = firstName;
+
+  const onSave = (event) => {
+    if (
+      document.getElementById('firstName').value !== '' && 
+      document.getElementById('lastName').value
+    ) {
+      event.preventDefault();
+      onFirstNameChange(document.getElementById('firstName').value);
+    }  
+  }
 
   useEffect( () => {
     if(isOpen) {
@@ -25,9 +37,11 @@ function InfoDialog({ isOpen, onClose }) {
           <div className="infoItem" tabIndex={0}>
             <label htmlFor="firstName">First Name</label>
             <input
+              defaultValue={first_name}
               type="text"
               id="firstName"
               name="first-name"
+              autoComplete="off"
               required
             />
           </div>
@@ -63,7 +77,12 @@ function InfoDialog({ isOpen, onClose }) {
         </div>
 
         <div className="save">
-          <button type="submit">Save</button>
+          <button 
+            type="submit"
+            onClick={onSave}
+          >
+            Save
+          </button>
         </div>
       </form>
     </dialog>

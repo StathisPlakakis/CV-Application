@@ -5,6 +5,7 @@ import { useState } from 'react'
 function Info() {
 
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [firstName, setFirstName] = useState('');
 
   const handleClickForGeneralInfoEdit = () => {
     setIsDialogOpen(true);
@@ -12,6 +13,10 @@ function Info() {
 
   const handleClickForCloseGeneralInfoEdit = () => {
     setIsDialogOpen(false);
+  }
+
+  const handleFirstNameChange = (value) => {
+    setFirstName(value);
   }
 
   return (
@@ -24,9 +29,14 @@ function Info() {
         >
         </button>
       </div>
+      <div className='infoDetails'>
+
+      </div>
       <InfoDialog 
         isOpen={isDialogOpen}
         onClose={handleClickForCloseGeneralInfoEdit}
+        firstName={firstName}
+        onFirstNameChange={handleFirstNameChange}
       />
     </section>
   )
