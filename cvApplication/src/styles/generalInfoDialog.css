@@ -9,3 +9,87 @@ dialog {
   margin-top: 0;
   top:3rem;
 }
+
+.infoDialHead {
+  font-size: 1.3rem;
+  padding: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  border-bottom: 1px solid #242424;
+}
+
+.infoDialHead button {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background-color: #ffffff;
+  outline: none;
+  background-image: url('../../public/svgs/cross.svg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.infoItems {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-bottom: 1px solid #242424;
+
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #242424;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.infoItem label {
+  font-size: 1.3rem;
+}
+
+
+.infoItem input {
+  background-color: #ffffff;
+  border: none;
+  color: #000000;
+  font-size: 1.5rem;
+  outline: none;
+}
+
+@media (prefers-color-scheme: light) {
+  dialog {
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+  }
+
+  .infoDialHead {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.87);
+  }
+
+  .infoDialHead button {
+    background-color: #242424;
+    background-image: url('../../public/svgs/cross2.svg');
+  }
+
+  .infoItems {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.87);
+  }
+
+  .infoItem {
+    border: 1px solid rgba(255, 255, 255, 0.87);
+  }
+
+
+  .infoItem input {
+    background-color: #242424;
+    border: none;
+    color: rgba(255, 255, 255, 0.97);
+
+  }
+}

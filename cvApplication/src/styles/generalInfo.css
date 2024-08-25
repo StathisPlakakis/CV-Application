@@ -1,7 +1,7 @@
 section.info {
   display: flex;
   flex-direction: column;
-  background-color: #f8f8f8;
+  background-color: #1e1e1e;
 }
 
 .infoHead {
@@ -14,7 +14,7 @@ section.info {
   width: 3rem;
   height: 3rem;
   border: none;
-  background-color: #242424;
+  background-color: #1e1e1e;
   outline: none;
   background-image: url('../../public/svgs/pencil.svg');
   background-position: center;
@@ -23,6 +23,11 @@ section.info {
 }
 
 @media (prefers-color-scheme: light) {
+
+  section.info {
+    background-color: #f8f8f8;
+  }
+
   .infoHead > button {
     background-color: #f8f8f8;
     background-image: url('../../public/svgs/pencil2.svg');

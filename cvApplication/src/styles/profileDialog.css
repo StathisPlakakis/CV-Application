@@ -72,10 +72,10 @@ dialog {
     border-bottom: 1px solid rgba(255, 255, 255, 0.87);
   }
 
-.profDialHead button {
-  background-color: #242424;
-  background-image: url('../../public/svgs/cross2.svg');
-}
+  .profDialHead button {
+    background-color: #242424;
+    background-image: url('../../public/svgs/cross2.svg');
+  }
 
   .profDialImage {
     border-bottom: 1px solid rgba(255, 255, 255, 0.87);
@@ -85,9 +85,9 @@ dialog {
     background-color: #ffffff;
   }
 
-.profDialActions button {
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;;
-}
+  .profDialActions button {
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;;
+  }
 
 }
