@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react"
 
-function InfoDialog({ isOpen }) {
+function InfoDialog({ isOpen, onClose }) {
 
   const dialogRef = useRef(null)
 
@@ -14,7 +14,10 @@ function InfoDialog({ isOpen }) {
 
   return (
     <dialog ref={dialogRef}>
-      hi
+      <div className='infoDialHead'>
+        <h2>Profile photo</h2>
+        <button onClick={onClose}></button>
+      </div>
       {/* <form>
 
       </form> */}

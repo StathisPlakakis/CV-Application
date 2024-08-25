@@ -10,6 +10,10 @@ function Info() {
     setIsDialogOpen(true);
   }
 
+  const handleClickForCloseGeneralInfoEdit = () => {
+    setIsDialogOpen(false);
+  }
+
   return (
     <section className="info">
       <div className="infoHead">
@@ -22,6 +26,7 @@ function Info() {
       </div>
       <InfoDialog 
         isOpen={isDialogOpen}
+        onClose={handleClickForCloseGeneralInfoEdit}
       />
     </section>
   )
