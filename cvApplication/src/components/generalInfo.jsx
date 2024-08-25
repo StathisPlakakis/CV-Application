@@ -1,4 +1,5 @@
 import '../styles/generalInfo.css'
+import InfoDialog from './generalInfoDialog'
 
 function Info() {
   return (
@@ -8,6 +9,7 @@ function Info() {
         <button       className="editInfo">
         </button>
       </div>
+      <InfoDialog/>
     </section>
   )
 }
