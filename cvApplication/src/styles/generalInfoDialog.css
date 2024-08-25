@@ -62,6 +62,20 @@ dialog {
   outline: none;
 }
 
+.save {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.save button {
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: #242424;
+  background-color: #ffffff;
+  border: none;
+}
+
 @media (prefers-color-scheme: light) {
   dialog {
     color: rgba(255, 255, 255, 0.87);
@@ -91,5 +105,10 @@ dialog {
     border: none;
     color: rgba(255, 255, 255, 0.97);
 
+  }
+
+  .save button {
+    background-color: #242424;;
+    color: #ffffff; 
   }
 }

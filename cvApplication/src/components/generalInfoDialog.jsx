@@ -61,6 +61,10 @@ function InfoDialog({ isOpen, onClose }) {
           </div>
 
         </div>
+
+        <div className="save">
+          <button type="submit">Save</button>
+        </div>
       </form>
     </dialog>
   )
