@@ -50,8 +50,18 @@ function Info() {
       <div className='infoDetails'>
         <div className='fullName'>
           <h1>
-            {firstName !== '' ? firstName : '-'} {firstName !== '' ? firstName : '-'}
+            {firstName !== '' ? firstName : '-'} {laststName !== '' ? laststName : '-'}
           </h1>
+        </div>
+        <div className='contact'>
+          <div className='emailCard'>
+            <div className='emailIcon'></div>
+            {email !== '' ? <a href={'mailto:'+email}>{email}</a> : '-'}
+          </div>
+          <div className='phoneCard'>
+            <div className='phoneIcon'></div>
+            {phoneNumber !== '' ? <a href={'tel:+30'+phoneNumber}>{phoneNumber}</a> : '-'}            
+          </div>
         </div>
       </div>
       <InfoDialog 
