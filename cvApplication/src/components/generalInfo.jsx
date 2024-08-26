@@ -5,10 +5,10 @@ import { useState } from 'react'
 function Info() {
 
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [firstName, setFirstName] = useState('');
-  const [laststName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [firstName, setFirstName] = useState(localStorage.getItem('firstName'));
+  const [laststName, setLastName] = useState(localStorage.getItem('lastName'));
+  const [email, setEmail] = useState(localStorage.getItem('email'));
+  const [phoneNumber, setPhoneNumber] = useState(localStorage.getItem('phoneNumber'));
 
 
 
@@ -23,18 +23,22 @@ function Info() {
 
   const handleFirstNameChange = (value) => {
     setFirstName(value);
+    localStorage.setItem('firstName', value)
   }
 
   const handleLastNameChange = (value) => {
     setLastName(value);
+    localStorage.setItem('lastName', value)
   }
 
   const handleEmailChange = (value) => {
     setEmail(value);
+    localStorage.setItem('email', value)
   }
 
   const handlePhoneNumberChange = (value) => {
     setPhoneNumber(value);
+    localStorage.setItem('phoneNumber', value)
   }
 
   return (
@@ -50,17 +54,17 @@ function Info() {
       <div className='infoDetails'>
         <div className='fullName'>
           <h1>
-            {firstName !== '' ? firstName : '-'} {laststName !== '' ? laststName : '-'}
+            {firstName ? firstName : '-'} {laststName ? laststName : '-'}
           </h1>
         </div>
         <div className='contact'>
           <div className='emailCard'>
             <div className='emailIcon'></div>
-            {email !== '' ? <a href={'mailto:'+email}>{email}</a> : '-'}
+            {email ? <a href={'mailto:'+email}>{email}</a> : '-'}
           </div>
           <div className='phoneCard'>
             <div className='phoneIcon'></div>
-            {phoneNumber !== '' ? <a href={'tel:+30'+phoneNumber}>{phoneNumber}</a> : '-'}            
+            {phoneNumber ? <a href={'tel:+30'+phoneNumber}>{phoneNumber}</a> : '-'}            
           </div>
         </div>
       </div>
@@ -69,7 +73,7 @@ function Info() {
         onClose={handleClickForCloseGeneralInfoEdit}
         firstName={firstName}
         onFirstNameChange={handleFirstNameChange}
-        laststName={laststName}
+        lastName={laststName}
         onLastNameChange={handleLastNameChange}
         email={email}
         onEmailChange={handleEmailChange}
