@@ -1,6 +1,7 @@
 import Profile from "./profileImage";
 import Saved from "./saved";
 import Info from "./generalInfo";
+import About from "./about";
 import { useState } from "react";
 
 function App() {
@@ -19,6 +20,8 @@ function App() {
     <Info
       onSavedActive={handleSaveActive}
       onSavedDisactive={handleSaveDisactive}
+    />
+    <About
     />
     <Saved
       isSaveActivated={isSaveActivated}

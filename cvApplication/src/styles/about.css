@@ -1,0 +1,39 @@
+section.about {
+  display: flex;
+  flex-direction: column;
+  background-color: #1e1e1e;
+}
+
+.aboutHead {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.aboutHead > button {
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  background-color: #1e1e1e;
+  outline: none;
+  background-image: url('../../public/svgs/pencil.svg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.aboutDetails {
+  text-align: center;
+}
+
+@media (prefers-color-scheme: light) {
+  section.about {
+    background-color: #f8f8f8;
+  }
+
+  .aboutHead > button {
+    background-color: #f8f8f8;
+    background-image: url('../../public/svgs/pencil2.svg');
+  }
+
+}
