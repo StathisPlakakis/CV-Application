@@ -1,0 +1,18 @@
+.hasSaved {
+  width: 100%;
+  background-color: green;
+  position: absolute;
+  bottom:0;
+  padding: 1rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+  color: #000000;
+}
+
+@media (prefers-color-scheme: light) {
+  .hasSaved {
+  color: #ffffff;
+  }
+
+}

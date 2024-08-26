@@ -6,7 +6,8 @@ function InfoDialog({
   firstName, onFirstNameChange,
   lastName, onLastNameChange,
   email, onEmailChange,
-  phoneNumber, onPhoneNumberChange 
+  phoneNumber, onPhoneNumberChange, 
+  onSavedActive, onSavedDisactive,
 }) {
 
   const dialogRef = useRef(null)
@@ -22,6 +23,8 @@ function InfoDialog({
       onLastNameChange(document.getElementById('lastName').value);
       onEmailChange(document.getElementById('email').value);
       onPhoneNumberChange(document.getElementById('phoneNumber').value);
+      onSavedActive();
+      setTimeout(() => onSavedDisactive(), 1500);
     }  
   }
 
@@ -83,6 +86,7 @@ function InfoDialog({
               defaultValue={phoneNumber}
               autoComplete="off"
               type="tel"
+              maxLength={10}
               id="phoneNumber"
               name="phone-number"
             />

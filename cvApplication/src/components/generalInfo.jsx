@@ -2,14 +2,13 @@ import '../styles/generalInfo.css'
 import InfoDialog from './generalInfoDialog'
 import { useState } from 'react'
 
-function Info() {
+function Info({onSavedActive, onSavedDisactive}) {
 
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [firstName, setFirstName] = useState(localStorage.getItem('firstName'));
   const [laststName, setLastName] = useState(localStorage.getItem('lastName'));
   const [email, setEmail] = useState(localStorage.getItem('email'));
   const [phoneNumber, setPhoneNumber] = useState(localStorage.getItem('phoneNumber'));
-
 
 
 
@@ -40,6 +39,7 @@ function Info() {
     setPhoneNumber(value);
     localStorage.setItem('phoneNumber', value)
   }
+
 
   return (
     <section className="info">
@@ -79,6 +79,8 @@ function Info() {
         onEmailChange={handleEmailChange}
         phoneNumber={phoneNumber}
         onPhoneNumberChange={handlePhoneNumberChange}
+        onSavedActive={onSavedActive}
+        onSavedDisactive={onSavedDisactive}
       />
     </section>
   )
