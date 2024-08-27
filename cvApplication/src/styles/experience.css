@@ -1,0 +1,34 @@
+section.experience {
+  display: flex;
+  flex-direction: column;
+  background-color: #1e1e1e;
+}
+.experienceHead {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.experienceHead > button {
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  background-color: #1e1e1e;
+  outline: none;
+  background-image: url('../../public/svgs/pencil.svg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media (prefers-color-scheme: light) {
+  section.experience {
+    background-color: #f8f8f8;
+  }
+
+  .experienceHead > button {
+    background-color: #f8f8f8;
+    background-image: url('../../public/svgs/pencil2.svg');
+  }
+
+}
