@@ -1,6 +1,6 @@
 import '../styles/experience.css'
 import { useState } from 'react'
-
+import ExperienceDialog from './experienceDialog'
 
 function Experience() {
 
