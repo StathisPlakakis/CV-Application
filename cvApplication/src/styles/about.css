@@ -24,6 +24,8 @@ section.about {
 
 .aboutDetails {
   text-align: center;
+  font-size: 1.3rem;
+  padding: 1rem;
 }
 
 @media (prefers-color-scheme: light) {

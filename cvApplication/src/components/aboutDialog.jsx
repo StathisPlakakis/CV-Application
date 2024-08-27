@@ -1,9 +1,20 @@
 import { useEffect, useRef } from "react";
 import '../styles/aboutDialog.css';
 
-function AboutDialog({isDialogOpen}) {
+function AboutDialog({
+  isDialogOpen, onClose, 
+  onSavedActive, onSavedDisactive,
+  about, onAboutChange
+}) {
 
   const dialogRef = useRef(null);
+
+  const onSave = (event) => {
+    event.preventDefault();
+    onAboutChange(document.getElementById('about').value)
+    onSavedActive();
+    setTimeout(() => onSavedDisactive(), 1500);
+  }
 
   useEffect(() => {
     if (isDialogOpen) {
@@ -17,7 +28,7 @@ function AboutDialog({isDialogOpen}) {
     <dialog ref={dialogRef}>
       <div className='aboutDialHead'>
         <h2>Edit about</h2>
-        <button></button>
+        <button onClick={onClose}></button>
       </div>
       <form className="aboutForm">
         <div className="aboutItems">
@@ -27,21 +38,15 @@ function AboutDialog({isDialogOpen}) {
               id="about"
               name="about"
               type="text"
-
-            ></textarea>
-            {/* <input
-              defaultValue={firstName}
+              defaultValue={about}
               autoComplete="off"
-              type="text"
-              id="firstName"
-              name="first-name"
-              required
-            /> */}
+            ></textarea>
           </div>
         </div>
         <div className="save">
           <button 
             type="submit"
+            onClick={onSave}
           >
             Save
           </button>

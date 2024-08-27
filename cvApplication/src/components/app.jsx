@@ -22,6 +22,8 @@ function App() {
       onSavedDisactive={handleSaveDisactive}
     />
     <About
+      onSavedActive={handleSaveActive}
+      onSavedDisactive={handleSaveDisactive}
     />
     <Saved
       isSaveActivated={isSaveActivated}
