@@ -1,0 +1,99 @@
+
+.experienceDialHead {
+  font-size: 1.3rem;
+  padding: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  border-bottom: 1px solid #242424;
+}
+
+.experienceDialHead button {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background-color: #ffffff;
+  outline: none;
+  background-image: url('../../public/svgs/cross.svg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.experienceItems {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-bottom: 1px solid #242424;
+
+}
+
+.experienceItem {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #242424;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.experienceItem label {
+  font-size: 1.3rem;
+}
+
+
+.experienceItem input {
+  background-color: #ffffff;
+  border: none;
+  color: #000000;
+  font-size: 1.5rem;
+  outline: none;
+}
+
+.save {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.save button {
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: #242424;
+  background-color: #ffffff;
+  border: none;
+}
+
+@media (prefers-color-scheme: light) {
+
+  .experienceDialHead {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.87);
+  }
+
+  .experienceDialHead button {
+    background-color: #242424;
+    background-image: url('../../public/svgs/cross2.svg');
+  }
+
+  .experienceItems {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.87);
+  }
+
+  .experienceItem {
+    border: 1px solid rgba(255, 255, 255, 0.87);
+  }
+
+
+  .experienceItem input {
+    background-color: #242424;
+    border: none;
+    color: rgba(255, 255, 255, 0.97);
+
+  }
+
+  .save button {
+    background-color: #242424;;
+    color: #ffffff; 
+  }
+}
