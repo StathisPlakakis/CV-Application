@@ -1,5 +1,5 @@
 
-.infoDialHead {
+.aboutDialHead {
   font-size: 1.3rem;
   padding: 0.2rem;
   display: flex;
@@ -8,7 +8,7 @@
   border-bottom: 1px solid #242424;
 }
 
-.infoDialHead button {
+.aboutDialHead button {
   width: 2rem;
   height: 2rem;
   border: none;
@@ -20,7 +20,7 @@
   background-repeat: no-repeat;
 }
 
-.infoItems {
+.aboutItems {
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
@@ -29,7 +29,7 @@
 
 }
 
-.infoItem {
+.aboutItem {
   display: flex;
   flex-direction: column;
   border: 1px solid #242424;
@@ -38,67 +38,44 @@
   margin-bottom: 1rem;
 }
 
-.infoItem label {
+.aboutItem label {
   font-size: 1.3rem;
 }
 
-
-.infoItem input {
+.aboutItem textarea {
   background-color: #ffffff;
   border: none;
   color: #000000;
   font-size: 1.5rem;
   outline: none;
-}
-
-.save {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-}
-
-.save button {
-  font-weight: bold;
-  font-size: 1.8rem;
-  color: #242424;
-  background-color: #ffffff;
-  border: none;
-}
-
-.fullName {
-  display: flex;
-  justify-content: center;
+  min-height: 10rem;
 }
 
 @media (prefers-color-scheme: light) {
 
-  .infoDialHead {
+  .aboutDialHead {
     border-bottom: 1px solid rgba(255, 255, 255, 0.87);
   }
 
-  .infoDialHead button {
+  .aboutDialHead button {
     background-color: #242424;
     background-image: url('../../public/svgs/cross2.svg');
   }
 
-  .infoItems {
+  .aboutItems {
     border-bottom: 1px solid rgba(255, 255, 255, 0.87);
   }
 
-  .infoItem {
+  .aboutItem {
     border: 1px solid rgba(255, 255, 255, 0.87);
   }
 
 
-  .infoItem input {
+  .aboutItem textarea {
     background-color: #242424;
     border: none;
     color: rgba(255, 255, 255, 0.97);
 
   }
 
-  .save button {
-    background-color: #242424;;
-    color: #ffffff; 
-  }
 }
