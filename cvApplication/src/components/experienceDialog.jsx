@@ -83,21 +83,19 @@ function ExperienceDialog({
           yearsDiff === 0 && monthsDiff === 0
           ) {
           event.preventDefault();
-          console.log('eeeeeeeeee')
+          document.querySelector('.error').style.display = 'block';
         }else {
     
           event.preventDefault();
+          document.querySelector('.error').style.display = 'none';
           onTitleChange(document.getElementById('title').value);
           onEmploymentTypeChange(document.getElementById('employmentType').value);
           onCompanyNameChange(document.getElementById('companyName').value);
-      
           onStartMonthChange(document.getElementById('startMonth').value);
           onStartYearChange(document.getElementById('startYear').value);
           onEndMonthChange(document.getElementById('endMonth').value);
           onEndYearChange(document.getElementById('endYear').value);
-      
           onDurationChange(`${yearsDiff} yr ${monthsDiff} mos`)
-      
           onResponsibilitiesChange(document.getElementById('responsibilities').value)
           onSavedActive();
           setTimeout(() => onSavedDisactive(), 1500);
@@ -288,6 +286,17 @@ function ExperienceDialog({
         </div>
 
         <div className="save">
+          <h2 
+            className='error'
+            style={
+              {
+                color: 'red',
+                display: 'none'
+              }
+            }
+          >
+            The duration of your working experience is invalid
+          </h2>
           <button 
             type="submit"
             onClick={onSave}

@@ -60,10 +60,17 @@
   outline: none;
 }
 
-.save {
+.experienceForm .save {
   margin-top: 1rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+}
+
+.experienceForm .save .error {
+  text-align: center;
+  font-size: 1.1rem;
+  padding: 1rem;
 }
 
 .save button {
