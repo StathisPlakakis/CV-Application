@@ -8,8 +8,10 @@ function Experience({onSavedActive, onSavedDisactive}) {
   const [title, setTitle] = useState(localStorage.getItem('title'));
   const [employmentType, setEmploymentType] = useState(localStorage.getItem('employmentType'));
   const [companyName, setCompanyName] = useState(localStorage.getItem('companyName'));
-  const [startDate, setStartDate] = useState(localStorage.getItem('startDate'));
-  const [endDate, setEndDate] = useState(localStorage.getItem('endDate'));
+  const [startMonth, setStartMonth] = useState(localStorage.getItem('startMonth'));
+  const [startYear, setStartYear] = useState(localStorage.getItem('startYear'));
+  const [endMonth, setEndMonth] = useState(localStorage.getItem('endMonth'));
+  const [endYear, setEndYear] = useState(localStorage.getItem('endYear'));
   const [duration, setDuration] = useState(localStorage.getItem('duration'));
   const [responsibilities, setResponsibilities] = useState(localStorage.getItem('responsibilities'));
 
@@ -41,14 +43,24 @@ function Experience({onSavedActive, onSavedDisactive}) {
     localStorage.setItem('duration', value)
   }
 
-  const handleStartDateChange = (value) => {
-    setStartDate(value);
-    localStorage.setItem('startDate', value)
+  const handleStartMonthChange = (value) => {
+    setStartMonth(value);
+    localStorage.setItem('startMonth', value)
   }
 
-  const handleEndDateChange = (value) => {
-    setEndDate(value);
-    localStorage.setItem('endDate', value)
+  const handleStartYearChange = (value) => {
+    setStartYear(value);
+    localStorage.setItem('startYear', value)
+  }
+
+  const handleEndMonthChange = (value) => {
+    setEndMonth(value);
+    localStorage.setItem('endMonth', value)
+  }
+
+  const handleEndYearChange = (value) => {
+    setEndYear(value);
+    localStorage.setItem('endYear', value)
   }
 
   const handleResponsibilitiesChange = (value) => {
@@ -68,18 +80,16 @@ function Experience({onSavedActive, onSavedDisactive}) {
       </div>
       <div className='experienceDetails'>
           <h2>
-            {title ? title : null}
+            {title}
           </h2>
           <h3>
-            {companyName ? companyName : null} {employmentType ? ' ( '+ employmentType + ' )' : null}
+            {'@ ' + companyName + ' (' + employmentType + ')'}
           </h3>
           <h3>
-            { startDate ? 
-              startDate + ' - ' + endDate + ' ( ' + duration + ' )' : 
-              null }
+            {startMonth + ' ' + startYear + ' - ' + endMonth + ' ' + endYear + ' (' + duration + ')' }
           </h3>
           <p>
-            {responsibilities ? responsibilities : null}
+            {responsibilities}
           </p>
       </div>
       <ExperienceDialog
@@ -91,10 +101,14 @@ function Experience({onSavedActive, onSavedDisactive}) {
         onEmploymentTypeChange={handleEmploymentTypeChange}
         companyName={companyName}
         onCompanyNameChange={handleCompanyNameChange}
-        startDate={startDate}
-        onStartDateChange={handleStartDateChange}
-        endDate={endDate}
-        onEndDateChange={handleEndDateChange}
+        startMonth={startMonth}
+        onStartMonthChange={handleStartMonthChange}
+        startYear={startYear}
+        onStartYearChange={handleStartYearChange}
+        endMonth={endMonth}
+        onEndMonthChange={handleEndMonthChange}
+        endYear={endYear}
+        onEndYearChange={handleEndYearChange}
         duration={duration}
         onDurationChange={handleDurationChange}
         responsibilities={responsibilities}

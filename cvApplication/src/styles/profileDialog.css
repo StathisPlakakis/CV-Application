@@ -8,6 +8,7 @@ dialog {
   border: none;
   margin-top: 0;
   top:3rem;
+  max-height: 80vh;
 }
 
 .profDialHead {

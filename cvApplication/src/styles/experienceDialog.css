@@ -38,6 +38,15 @@
   margin-bottom: 1rem;
 }
 
+.experienceItem.date {
+  border: 1px solid #ffffff;
+}
+
+.experienceItem.date p {
+  font-size: 1.5rem;
+}
+
+
 .experienceItem label {
   font-size: 1.3rem;
 }
@@ -62,6 +71,37 @@
   font-size: 1.8rem;
   color: #242424;
   background-color: #ffffff;
+  border: none;
+}
+
+select {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  font-size: 1.5rem;
+}
+
+.start, .end {
+  display: flex;
+  gap: 1rem;
+}
+
+.startMonth, .startYear, .endMonth, .endYear {
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid #242424;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+textarea {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: #ffffff;
+  outline: #ffffff;
+  color: #000000;
   border: none;
 }
 
@@ -93,7 +133,26 @@
   }
 
   .save button {
-    background-color: #242424;;
+    background-color: #242424;
     color: #ffffff; 
+  }
+
+  select {
+    background-color: #242424;
+    color: #ffffff;
+  }
+
+  .experienceItem.date {
+    border: 1px solid #242424;
+  }
+
+  .startMonth, .startYear, .endMonth, .endYear {
+    border: 1px solid #ffffff;
+  }
+  
+  textarea {
+    background-color: #242424;
+    color: #ffffff;
+    outline: #000000;
   }
 }

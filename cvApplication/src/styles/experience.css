@@ -21,6 +21,17 @@ section.experience {
   background-repeat: no-repeat;
 }
 
+.experienceDetails {
+  text-align: center;
+  font-size: 1.1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.87);
+  margin-bottom: 1rem;
+}
+
+.experienceDetails p {
+  font-size: 1.2rem;
+}
+
 @media (prefers-color-scheme: light) {
   section.experience {
     background-color: #f8f8f8;
@@ -30,5 +41,10 @@ section.experience {
     background-color: #f8f8f8;
     background-image: url('../../public/svgs/pencil2.svg');
   }
+
+  .experienceDetails {
+    border-bottom: 1px solid #242424;
+  }
+
 
 }

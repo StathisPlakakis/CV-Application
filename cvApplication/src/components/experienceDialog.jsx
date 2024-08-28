@@ -6,8 +6,10 @@ function ExperienceDialog({
   title, onTitleChange,
   employmentType, onEmploymentTypeChange,
   companyName, onCompanyNameChange,
-  startDate, onStartDateChange,
-  endDate, onEndDateChange,
+  startMonth, onStartMonthChange,
+  startYear, onStartYearChange,
+  endMonth, onEndMonthChange,
+  endYear, onEndYearChange,
   duration, onDurationChange,
   responsibilities, onResponsibilitiesChange,
   onSavedActive, onSavedDisactive
@@ -21,8 +23,10 @@ function ExperienceDialog({
     onTitleChange(document.getElementById('title').value);
     onEmploymentTypeChange(document.getElementById('employmentType').value);
     onCompanyNameChange(document.getElementById('companyName').value);
-    onStartDateChange(document.getElementById('startDate').value);
-    onEndDateChange(document.getElementById('endDate').value);
+    onStartMonthChange(document.getElementById('startMonth').value);
+    onStartYearChange(document.getElementById('startYear').value);
+    onEndMonthChange(document.getElementById('endMonth').value);
+    onEndYearChange(document.getElementById('endYear').value);
     onResponsibilitiesChange(document.getElementById('responsibilities').value)
     onSavedActive();
     setTimeout(() => onSavedDisactive(), 1500);
@@ -57,58 +61,104 @@ function ExperienceDialog({
           </div>
 
           <div className="experienceItem" tabIndex={0}>
-            <label htmlFor="employmentType">Employment Type</label>
-            <input
-              defaultValue={employmentType}
-              autoComplete="off"
-              type="text"
-              id="employmentType"
-              name="employmentType"
-            />
-          </div>
-
-          <div className="experienceItem" tabIndex={0}>
             <label htmlFor="companyName">Company Name</label>
             <input
               defaultValue={companyName}
               autoComplete="off"
               type="text"
               id="companyName"
-              name="emcompanyNameail"
+              name="companyName"
             />
           </div>
 
           <div className="experienceItem" tabIndex={0}>
-            <label htmlFor="startDate">Start Date</label>
-            <input
-              defaultValue={startDate}
+            <label htmlFor="employmentType">Employment Type</label>
+            <select 
+              id='employmentType' 
+              name='employmentType'
+              defaultValue={employmentType}
               autoComplete="off"
-              type="text"
-              id="startDate"
-              name="startDate"
-            />
+            >
+              <option value='Full Time'>Full Time</option>
+              <option value='Part Time'>Part Time</option>
+            </select>
           </div>
 
-          <div className="experienceItem" tabIndex={0}>
-            <label htmlFor="endDate">End Date</label>
-            <input
-              defaultValue={endDate}
-              autoComplete="off"
-              type="text"
-              id="endDate"
-              name="endDate"
-            />
+          <div className="experienceItem date" tabIndex={0}>
+            <p>From</p>
+            <div className='start'>
+
+            <div className='startYear'>
+                <label htmlFor="startYear">Year</label>
+                <select 
+                  id='startYear' 
+                  name='startYear'
+                  defaultValue={startYear}
+                  autoComplete="off"
+                >
+                  <option value='Full Time'>Full Time</option>
+                  <option value='Part Time'>Part Time</option>
+                </select>
+              </div>
+
+              <div className='startMonth'>
+                <label htmlFor="startMonth">Month</label>
+                <select 
+                  id='startMonth' 
+                  name='startMonth'
+                  defaultValue={startMonth}
+                  autoComplete="off"
+                >
+                  <option value='Full Time'>Full Time</option>
+                  <option value='Part Time'>Part Time</option>
+                </select>
+              </div>
+              
+            </div>
+          </div>
+
+          <div className="experienceItem date" tabIndex={0}>
+            <p>To</p>
+            <div className='end'>
+
+            <div className='endYear'>
+                <label htmlFor="endYear">Year</label>
+                <select 
+                  id='endYear' 
+                  name='endYear'
+                  defaultValue={endYear}
+                  autoComplete="off"
+                >
+                  <option value='Full Time'>Full Time</option>
+                  <option value='Part Time'>Part Time</option>
+                </select>
+              </div>
+
+              <div className='endMonth'>
+                <label htmlFor="endMonth">Month</label>
+                <select 
+                  id='endMonth' 
+                  name='endMonth'
+                  defaultValue={endMonth}
+                  autoComplete="off"
+                >
+                  <option value='Full Time'>Full Time</option>
+                  <option value='Part Time'>Part Time</option>
+                </select>
+              </div>
+              
+            </div>
           </div>
 
           <div className="experienceItem" tabIndex={0}>
             <label htmlFor="responsibilities">Responsibilities</label>
-            <input
-              defaultValue={responsibilities}
-              autoComplete="off"
-              type="text"
+            <textarea
               id="responsibilities"
               name="responsibilities"
-            />
+              defaultValue={responsibilities}
+              autoComplete="off"
+            >
+            </textarea>
           </div>
 
         </div>
