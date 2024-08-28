@@ -26,63 +26,85 @@ function ExperienceDialog({
   }
 
   const onSave = (event) => {
+    if (
+      document.getElementById('title').value !== '' &&
+      document.getElementById('employmentType').value !== '' &&
+      document.getElementById('companyName').value !== '' &&
+      document.getElementById('startMonth').value !== '' &&
+      document.getElementById('startYear').value !== '' &&
+      document.getElementById('endMonth').value !== '' &&
+      document.getElementById('endYear').value !== '' &&
+      document.getElementById('responsibilities').value !== ''
+    ) {
 
-    const months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December'
-    ]
+        const months = [
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+          'August',
+          'September',
+          'October',
+          'November',
+          'December'
+        ]
+    
+        let sMonth = undefined;
+        const sYear = document.getElementById('startYear').value;
+        let eMonth = undefined;
+        const eYear = document.getElementById('endYear').value;
+    
+    
+        for (let i = 0; i <= 11; i++) {
+          if (months[i] === document.getElementById('startMonth').value) {
+            sMonth = i + 1;
+          }
+        }
+    
+        for (let i = 0; i <= 11; i++) {
+          if (months[i] === document.getElementById('endMonth').value) {
+            eMonth = i + 1;
+          }
+        }
+    
+        let yearsDiff = eYear - sYear;
+        let monthsDiff = eMonth - sMonth;
+    
+        if (monthsDiff < 0) {
+          yearsDiff -= 1;
+          monthsDiff += 12;
+        }
 
-    let sMonth = undefined;
-    const sYear = document.getElementById('startYear').value;
-    let eMonth = undefined;
-    const eYear = document.getElementById('endYear').value;
+        if ( 
+          yearsDiff < 0 ||
+          yearsDiff === 0 && monthsDiff === 0
+          ) {
+          event.preventDefault();
+          console.log('eeeeeeeeee')
+        }else {
+    
+          event.preventDefault();
+          onTitleChange(document.getElementById('title').value);
+          onEmploymentTypeChange(document.getElementById('employmentType').value);
+          onCompanyNameChange(document.getElementById('companyName').value);
+      
+          onStartMonthChange(document.getElementById('startMonth').value);
+          onStartYearChange(document.getElementById('startYear').value);
+          onEndMonthChange(document.getElementById('endMonth').value);
+          onEndYearChange(document.getElementById('endYear').value);
+      
+          onDurationChange(`${yearsDiff} yr ${monthsDiff} mos`)
+      
+          onResponsibilitiesChange(document.getElementById('responsibilities').value)
+          onSavedActive();
+          setTimeout(() => onSavedDisactive(), 1500);
+        }
 
-
-    for (let i = 0; i <= 11; i++) {
-      if (months[i] === document.getElementById('startMonth').value) {
-        sMonth = i + 1;
       }
-    }
 
-    for (let i = 0; i <= 11; i++) {
-      if (months[i] === document.getElementById('endMonth').value) {
-        eMonth = i + 1;
-      }
-    }
-
-    let yearsDiff = eYear - sYear;
-    let monthsDiff = eMonth - sMonth;
-
-    if (monthsDiff < 0) {
-      yearsDiff -= 1;
-      monthsDiff += 12;
-    }
-
-    event.preventDefault();
-    onTitleChange(document.getElementById('title').value);
-    onEmploymentTypeChange(document.getElementById('employmentType').value);
-    onCompanyNameChange(document.getElementById('companyName').value);
-
-    onStartMonthChange(document.getElementById('startMonth').value);
-    onStartYearChange(document.getElementById('startYear').value);
-    onEndMonthChange(document.getElementById('endMonth').value);
-    onEndYearChange(document.getElementById('endYear').value);
-
-    onDurationChange(`${yearsDiff} yr ${monthsDiff} mos`)
-
-    onResponsibilitiesChange(document.getElementById('responsibilities').value)
-    onSavedActive();
-    setTimeout(() => onSavedDisactive(), 1500);
   }
 
   useEffect( () => {
@@ -110,6 +132,7 @@ function ExperienceDialog({
               type="text"
               id="title"
               name="title"
+              required
             />
           </div>
 
@@ -121,6 +144,7 @@ function ExperienceDialog({
               type="text"
               id="companyName"
               name="companyName"
+              required
             />
           </div>
 
@@ -131,6 +155,7 @@ function ExperienceDialog({
               name='employmentType'
               defaultValue={employmentType}
               autoComplete="off"
+              required
             >
               <option value='Full Time'>Full Time</option>
               <option value='Part Time'>Part Time</option>
@@ -148,6 +173,8 @@ function ExperienceDialog({
                   name='startYear'
                   defaultValue={startYear}
                   autoComplete="off"
+                  required
+
                 >
                   {
                     years.map(year => (
@@ -169,6 +196,8 @@ function ExperienceDialog({
                   name='startMonth'
                   defaultValue={startMonth}
                   autoComplete="off"
+                  required
+
                 >
                   <option value='January'>January</option>
                   <option value='February'>February</option>
@@ -199,6 +228,8 @@ function ExperienceDialog({
                   name='endYear'
                   defaultValue={endYear}
                   autoComplete="off"
+                  required
+
                 >
                   {
                     years.map(year => (
@@ -220,6 +251,8 @@ function ExperienceDialog({
                   name='endMonth'
                   defaultValue={endMonth}
                   autoComplete="off"
+                  required
+
                 >
                   <option value='January'>January</option>
                   <option value='February'>February</option>
@@ -246,6 +279,8 @@ function ExperienceDialog({
               name="responsibilities"
               defaultValue={responsibilities}
               autoComplete="off"
+              required
+
             >
             </textarea>
           </div>
