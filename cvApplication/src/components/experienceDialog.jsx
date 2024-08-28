@@ -10,7 +10,7 @@ function ExperienceDialog({
   startYear, onStartYearChange,
   endMonth, onEndMonthChange,
   endYear, onEndYearChange,
-  duration, onDurationChange,
+  onDurationChange,
   responsibilities, onResponsibilitiesChange,
   onSavedActive, onSavedDisactive
   
@@ -26,14 +26,60 @@ function ExperienceDialog({
   }
 
   const onSave = (event) => {
+
+    const months = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December'
+    ]
+
+    let sMonth = undefined;
+    const sYear = document.getElementById('startYear').value;
+    let eMonth = undefined;
+    const eYear = document.getElementById('endYear').value;
+
+
+    for (let i = 0; i <= 11; i++) {
+      if (months[i] === document.getElementById('startMonth').value) {
+        sMonth = i + 1;
+      }
+    }
+
+    for (let i = 0; i <= 11; i++) {
+      if (months[i] === document.getElementById('endMonth').value) {
+        eMonth = i + 1;
+      }
+    }
+
+    let yearsDiff = eYear - sYear;
+    let monthsDiff = eMonth - sMonth;
+
+    if (monthsDiff < 0) {
+      yearsDiff -= 1;
+      monthsDiff += 12;
+    }
+
     event.preventDefault();
     onTitleChange(document.getElementById('title').value);
     onEmploymentTypeChange(document.getElementById('employmentType').value);
     onCompanyNameChange(document.getElementById('companyName').value);
+
     onStartMonthChange(document.getElementById('startMonth').value);
     onStartYearChange(document.getElementById('startYear').value);
     onEndMonthChange(document.getElementById('endMonth').value);
     onEndYearChange(document.getElementById('endYear').value);
+
+    onDurationChange(`${yearsDiff} yr ${monthsDiff} mos`)
+
     onResponsibilitiesChange(document.getElementById('responsibilities').value)
     onSavedActive();
     setTimeout(() => onSavedDisactive(), 1500);

@@ -109,7 +109,6 @@ function Experience({onSavedActive, onSavedDisactive}) {
         onEndMonthChange={handleEndMonthChange}
         endYear={endYear}
         onEndYearChange={handleEndYearChange}
-        duration={duration}
         onDurationChange={handleDurationChange}
         responsibilities={responsibilities}
         onResponsibilitiesChange={handleResponsibilitiesChange}
