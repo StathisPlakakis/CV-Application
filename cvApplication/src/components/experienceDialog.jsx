@@ -18,6 +18,13 @@ function ExperienceDialog({
 
   const dialogRef = useRef(null)
 
+  const currentYear = new Date().getFullYear();
+  const startYear2 = 1965;
+  let years = [];
+  for (let i = currentYear; i >= startYear2; i--) {
+    years.push(i);
+  }
+
   const onSave = (event) => {
     event.preventDefault();
     onTitleChange(document.getElementById('title').value);
@@ -96,8 +103,16 @@ function ExperienceDialog({
                   defaultValue={startYear}
                   autoComplete="off"
                 >
-                  <option value='Full Time'>Full Time</option>
-                  <option value='Part Time'>Part Time</option>
+                  {
+                    years.map(year => (
+                      <option
+                        key={year}
+                        value={year}
+                      >
+                        {year}
+                      </option>
+                    ))
+                  }
                 </select>
               </div>
 
@@ -109,8 +124,18 @@ function ExperienceDialog({
                   defaultValue={startMonth}
                   autoComplete="off"
                 >
-                  <option value='Full Time'>Full Time</option>
-                  <option value='Part Time'>Part Time</option>
+                  <option value='January'>January</option>
+                  <option value='February'>February</option>
+                  <option value='March'>March</option>
+                  <option value='April'>April</option>
+                  <option value='May'>May</option>
+                  <option value='June'>June</option>
+                  <option value='July'>July</option>
+                  <option value='August'>August</option>
+                  <option value='September'>September</option>
+                  <option value='October'>October</option>
+                  <option value='November'>November</option>
+                  <option value='December'>December</option>
                 </select>
               </div>
               
@@ -129,8 +154,16 @@ function ExperienceDialog({
                   defaultValue={endYear}
                   autoComplete="off"
                 >
-                  <option value='Full Time'>Full Time</option>
-                  <option value='Part Time'>Part Time</option>
+                  {
+                    years.map(year => (
+                      <option
+                        key={year}
+                        value={year}
+                      >
+                        {year}
+                      </option>
+                    ))
+                  }
                 </select>
               </div>
 
@@ -142,8 +175,18 @@ function ExperienceDialog({
                   defaultValue={endMonth}
                   autoComplete="off"
                 >
-                  <option value='Full Time'>Full Time</option>
-                  <option value='Part Time'>Part Time</option>
+                  <option value='January'>January</option>
+                  <option value='February'>February</option>
+                  <option value='March'>March</option>
+                  <option value='April'>April</option>
+                  <option value='May'>May</option>
+                  <option value='June'>June</option>
+                  <option value='July'>July</option>
+                  <option value='August'>August</option>
+                  <option value='September'>September</option>
+                  <option value='October'>October</option>
+                  <option value='November'>November</option>
+                  <option value='December'>December</option>
                 </select>
               </div>
               
