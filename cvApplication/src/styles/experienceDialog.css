@@ -30,6 +30,7 @@
 }
 
 .experienceItem {
+  text-align: start;
   display: flex;
   flex-direction: column;
   border: 1px solid #242424;

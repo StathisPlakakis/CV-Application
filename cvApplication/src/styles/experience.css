@@ -3,13 +3,25 @@ section.experience {
   flex-direction: column;
   background-color: #1e1e1e;
 }
-.experienceHead {
+
+.experience {
+  text-align: center;
+}
+
+.experienceDeatails {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.experienceHead > button {
+.experienceDeatailsHead {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.experienceDeatailsHead > button {
   width: 3rem;
   height: 3rem;
   border: none;
@@ -37,7 +49,7 @@ section.experience {
     background-color: #f8f8f8;
   }
 
-  .experienceHead > button {
+  .experienceDeatailsHead > button {
     background-color: #f8f8f8;
     background-image: url('../../public/svgs/pencil2.svg');
   }
