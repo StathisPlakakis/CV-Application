@@ -11,8 +11,10 @@ function Experience({onSavedActive, onSavedDisactive}) {
     return savedExperienceItems ? JSON.parse(savedExperienceItems) : [];
   });
 
-  const experienceItemsLength = experienceItems.length;
-  const [keyy, setKey] = useState(experienceItemsLength);
+  const [keyy, setKey] = useState(() => {
+    const key = localStorage.getItem('key');
+    return key ? Number(key) : 0;
+  });
 
 
   const handleClickForExperienceItemAddition = () => {
@@ -58,7 +60,9 @@ function Experience({onSavedActive, onSavedDisactive}) {
     savedExperienceItems.push(newItem);
     localStorage.setItem('experienceItems', JSON.stringify(savedExperienceItems));
     setExperienceItems(savedExperienceItems);
-    setKey(keyy + 1);
+    const key = Number(localStorage.getItem('key'))
+    localStorage.setItem('key', key+1)
+    setKey(key + 1);
   }
 
   const handleExperienceItemChange = (id, editedExperienceItem) => {
@@ -79,6 +83,29 @@ function Experience({onSavedActive, onSavedDisactive}) {
     )
     localStorage.setItem('experienceItems', JSON.stringify(editedExperienceItems));
     setExperienceItems(editedExperienceItems)
+  }
+
+  const handleExperienceItemDelete = (id) => {
+    const savedData = localStorage.getItem('experienceItems');
+    let savedExperienceItems = [];
+
+    if (savedData) {
+      try {
+        savedExperienceItems = JSON.parse(savedData);
+      }catch(error) {
+        console.error("Error parsing JSON from localStorage:", error);
+        savedExperienceItems = [];
+      }
+    }
+    let experienceItemsAfterDelete = [];
+
+    for (let i = 0; i < savedExperienceItems.length; i++) {
+      if(savedExperienceItems[i].id !== id){
+        experienceItemsAfterDelete.push(savedExperienceItems[i])
+      }
+    }
+    localStorage.setItem('experienceItems', JSON.stringify(experienceItemsAfterDelete));
+    setExperienceItems(experienceItemsAfterDelete)
   }
 
   return (
@@ -104,6 +131,7 @@ function Experience({onSavedActive, onSavedDisactive}) {
                           onSavedActive={onSavedActive}
                           onSavedDisactive={onSavedDisactive}
                           onExperienceItemChange={handleExperienceItemChange}
+                          onExperienceItemDelete={handleExperienceItemDelete}
                         />
         ))}
       </div>

@@ -1,4 +1,5 @@
 import ExperienceDialog from './experienceDialog'
+import ExperienceDialogDelete from './experienceDialogDelete';
 import '../styles/experience.css'
 import { useState } from 'react';
 
@@ -9,10 +10,13 @@ function ExperienceItem({
   endYear, duration,
   responsibilities,id,
   onExperienceItemChange,
-  onSavedActive, onSavedDisactive
+  onSavedActive, onSavedDisactive,
+  onExperienceItemDelete
 }) {
 
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+
 
   const handleClickForExperienceEdit = () => {
     setIsDialogOpen(true);
@@ -20,6 +24,14 @@ function ExperienceItem({
 
   const handleClickForCloseExperienceEdit = () => {
     setIsDialogOpen(false);
+  }
+
+  const handleClickForExperienceDelete = () => {
+    setIsDeleteDialogOpen(true);
+  }
+
+  const handleClickForCloseExperienceDelete = () => {
+    setIsDeleteDialogOpen(false);
   }
 
   const handleExperienceItemChange = (id, editedExperienceItem) => {
@@ -30,11 +42,18 @@ function ExperienceItem({
     <>
       <div className='experienceDetails'>
           <div className='experienceDeatailsHead'>
-            <button 
-              className="editExperience"
-              onClick={handleClickForExperienceEdit}
-            >
-            </button>
+            <div className='buttons'>
+              <button
+                className="deleteExperience"
+                onClick={handleClickForExperienceDelete}
+              >
+              </button>
+              <button
+                className="editExperience"
+                onClick={handleClickForExperienceEdit}
+              >
+              </button>
+            </div>
             <h2>
               {title}
             </h2>
@@ -65,6 +84,12 @@ function ExperienceItem({
         isForAddition={false}
         id={id}
         onExperienceItemEdit={handleExperienceItemChange}
+      />
+      <ExperienceDialogDelete
+        isDeleteDialogOpen={isDeleteDialogOpen}
+        onClose={handleClickForCloseExperienceDelete}
+        onDelete={onExperienceItemDelete}
+        id={id}
       />
     </>
     

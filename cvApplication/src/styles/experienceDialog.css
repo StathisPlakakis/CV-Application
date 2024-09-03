@@ -26,7 +26,6 @@
   flex-direction: column;
   gap: 0.5rem;
   border-bottom: 1px solid #242424;
-
 }
 
 .experienceItem {
@@ -113,6 +112,20 @@ textarea {
   border: none;
 }
 
+.delDialActions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3rem;
+}
+.delDialActions button {
+  border: none;
+  background-color: #ffffff;
+  font-weight: bold;
+  font-size: 2rem;
+  color:#242424;
+}
+
+
 @media (prefers-color-scheme: light) {
 
   .experienceDialHead {
@@ -162,5 +175,13 @@ textarea {
     background-color: #242424;
     color: #ffffff;
     outline: #000000;
+  }
+
+  .delDialActions button {
+    border: none;
+    background-color: #242424;
+    font-weight: bold;
+    font-size: 2rem;
+    color: #ffffff;
   }
 }
