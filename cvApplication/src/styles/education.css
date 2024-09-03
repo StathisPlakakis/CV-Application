@@ -1,0 +1,29 @@
+section.education {
+  display: flex;
+  flex-direction: column;
+  background-color: #1e1e1e;
+  text-align: center;
+}
+
+.addEducationItem > button {
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  background-color: #1e1e1e;
+  outline: none;
+  background-image: url('../../public/svgs/add.svg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media (prefers-color-scheme: light) {
+  section.education {
+    background-color: #f8f8f8;
+  }
+
+  .addEducationItem > button {
+    background-color: #f8f8f8;
+    background-image: url('../../public/svgs/add2.svg');
+  }
+}

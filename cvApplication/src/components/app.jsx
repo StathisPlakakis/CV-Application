@@ -3,6 +3,7 @@ import Saved from "./saved";
 import Info from "./generalInfo";
 import About from "./about";
 import Experience from "./experience";
+import Education from "./education";
 import { useState } from "react";
 
 function App() {
@@ -29,6 +30,10 @@ function App() {
     <Experience
       onSavedActive={handleSaveActive}
       onSavedDisactive={handleSaveDisactive}    
+    />
+    <Education
+      onSavedActive={handleSaveActive}
+      onSavedDisactive={handleSaveDisactive}      
     />
     <Saved
       isSaveActivated={isSaveActivated}
