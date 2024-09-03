@@ -1,7 +1,7 @@
 .hasSaved {
   width: 100%;
   background-color: green;
-  position: absolute;
+  position: fixed;
   bottom:0;
   padding: 1rem;
   font-size: 1.6rem;

@@ -3,20 +3,28 @@ import { useRef, useEffect } from "react"
 
 function ExperienceDialog({
   isOpen, onClose, 
-  title, onTitleChange,
-  employmentType, onEmploymentTypeChange,
-  companyName, onCompanyNameChange,
-  startMonth, onStartMonthChange,
-  startYear, onStartYearChange,
-  endMonth, onEndMonthChange,
-  endYear, onEndYearChange,
-  onDurationChange,
-  responsibilities, onResponsibilitiesChange,
-  onSavedActive, onSavedDisactive
-  
+  title, employmentType, 
+  companyName, startMonth, 
+  startYear, endMonth, 
+  endYear, responsibilities, 
+  id,
+  onSavedActive, onSavedDisactive,
+  isForAddition, onExperienceItemAddition,  
+  onExperienceItemEdit
 }) {
 
   const dialogRef = useRef(null)
+  const titleRef = useRef(null)
+  const employmentTypeRef = useRef(null)
+  const companyNameRef = useRef(null)
+  const startMonthRef = useRef(null)
+  const startYearRef = useRef(null)
+  const endMonthRef = useRef(null)
+  const endYearRef = useRef(null)
+  const responsibilitiesRef = useRef(null)
+  const errorRef = useRef(null)
+
+  
 
   const currentYear = new Date().getFullYear();
   const startYear2 = 1965;
@@ -25,16 +33,33 @@ function ExperienceDialog({
     years.push(i);
   }
 
+  const handleOnClose = () => {
+    if (isForAddition) {
+      onClose()
+      errorRef.current.style.display = 'none'
+      titleRef.current.value = ''
+      employmentTypeRef.current.value = 'Full Time'
+      companyNameRef.current.value = '' 
+      startMonthRef.current.value = 'January' 
+      startYearRef.current.value = '2024' 
+      endMonthRef.current.value = 'January' 
+      endYearRef.current.value = '2024' 
+      responsibilitiesRef.current.value = ''
+    }else {
+      onClose()
+    }
+  }
+
   const onSave = (event) => {
     if (
-      document.getElementById('title').value !== '' &&
-      document.getElementById('employmentType').value !== '' &&
-      document.getElementById('companyName').value !== '' &&
-      document.getElementById('startMonth').value !== '' &&
-      document.getElementById('startYear').value !== '' &&
-      document.getElementById('endMonth').value !== '' &&
-      document.getElementById('endYear').value !== '' &&
-      document.getElementById('responsibilities').value !== ''
+      titleRef.current.value !== '' &&
+      employmentTypeRef.current.value !== '' &&
+      companyNameRef.current.value !== '' &&
+      startMonthRef.current.value !== '' &&
+      startYearRef.current.value !== '' &&
+      endMonthRef.current.value !== '' &&
+      endYearRef.current.value !== '' &&
+      responsibilitiesRef.current.value !== '' 
     ) {
 
         const months = [
@@ -53,19 +78,19 @@ function ExperienceDialog({
         ]
     
         let sMonth = undefined;
-        const sYear = document.getElementById('startYear').value;
+        const sYear = startYearRef.current.value;
         let eMonth = undefined;
-        const eYear = document.getElementById('endYear').value;
+        const eYear = endYearRef.current.value;
     
     
         for (let i = 0; i <= 11; i++) {
-          if (months[i] === document.getElementById('startMonth').value) {
+          if (months[i] === startMonthRef.current.value) {
             sMonth = i + 1;
           }
         }
     
         for (let i = 0; i <= 11; i++) {
-          if (months[i] === document.getElementById('endMonth').value) {
+          if (months[i] === endMonthRef.current.value) {
             eMonth = i + 1;
           }
         }
@@ -78,27 +103,50 @@ function ExperienceDialog({
           monthsDiff += 12;
         }
 
+
         if ( 
           yearsDiff < 0 ||
           yearsDiff === 0 && monthsDiff === 0
           ) {
           event.preventDefault();
-          document.querySelector('.error').style.display = 'block';
+          errorRef.current.style.display = 'block';
         }else {
-    
-          event.preventDefault();
-          document.querySelector('.error').style.display = 'none';
-          onTitleChange(document.getElementById('title').value);
-          onEmploymentTypeChange(document.getElementById('employmentType').value);
-          onCompanyNameChange(document.getElementById('companyName').value);
-          onStartMonthChange(document.getElementById('startMonth').value);
-          onStartYearChange(document.getElementById('startYear').value);
-          onEndMonthChange(document.getElementById('endMonth').value);
-          onEndYearChange(document.getElementById('endYear').value);
-          onDurationChange(`${yearsDiff} yr ${monthsDiff} mos`)
-          onResponsibilitiesChange(document.getElementById('responsibilities').value)
-          onSavedActive();
-          setTimeout(() => onSavedDisactive(), 1500);
+          if (isForAddition) {
+            event.preventDefault();
+            onExperienceItemAddition(
+              titleRef.current.value,
+              employmentTypeRef.current.value,
+              companyNameRef.current.value,
+              startMonthRef.current.value,
+              startYearRef.current.value,
+              endMonthRef.current.value,
+              endYearRef.current.value,
+              `${yearsDiff} yr ${monthsDiff} mos`,
+              responsibilitiesRef.current.value,
+            );
+            onSavedActive();
+            setTimeout(() => onSavedDisactive(), 1500);
+            handleOnClose();
+          }else {
+            event.preventDefault();
+            errorRef.current.style.display = 'none'
+            onExperienceItemEdit(id, {
+              'id': `${id}`,
+              'title': `${titleRef.current.value}`,
+              'employmentType': `${employmentTypeRef.current.value}`,
+              'companyName': `${companyNameRef.current.value}`,
+              'startMonth': `${startMonthRef.current.value}`,
+              'startYear': `${startYearRef.current.value}`,
+              'endMonth': `${endMonthRef.current.value}`,
+              'endYear': `${endYearRef.current.value}`,
+              'duration': `${`${yearsDiff} yr ${monthsDiff} mos`}`,
+              'responsibilities': `${responsibilitiesRef.current.value}`,
+            }
+            )
+            onSavedActive();
+            setTimeout(() => onSavedDisactive(), 1500);
+          }
+
         }
 
       }
@@ -111,13 +159,13 @@ function ExperienceDialog({
     }else {
       dialogRef.current.close();
     }
-  })
+  }, [isOpen])
 
   return (
     <dialog ref={dialogRef}>
       <div className='experienceDialHead'>
         <h2>Edit experience</h2>
-        <button onClick={onClose}></button>
+        <button onClick={handleOnClose}></button>
       </div>
       <form className="experienceForm">
         <div className="experienceItems">
@@ -129,6 +177,7 @@ function ExperienceDialog({
               autoComplete="off"
               type="text"
               id="title"
+              ref={titleRef}
               name="title"
               required
             />
@@ -141,6 +190,7 @@ function ExperienceDialog({
               autoComplete="off"
               type="text"
               id="companyName"
+              ref={companyNameRef}
               name="companyName"
               required
             />
@@ -150,6 +200,7 @@ function ExperienceDialog({
             <label htmlFor="employmentType">Employment Type</label>
             <select 
               id='employmentType' 
+              ref={employmentTypeRef}
               name='employmentType'
               defaultValue={employmentType}
               autoComplete="off"
@@ -168,6 +219,7 @@ function ExperienceDialog({
                 <label htmlFor="startYear">Year</label>
                 <select 
                   id='startYear' 
+                  ref={startYearRef}
                   name='startYear'
                   defaultValue={startYear}
                   autoComplete="off"
@@ -191,6 +243,7 @@ function ExperienceDialog({
                 <label htmlFor="startMonth">Month</label>
                 <select 
                   id='startMonth' 
+                  ref={startMonthRef}
                   name='startMonth'
                   defaultValue={startMonth}
                   autoComplete="off"
@@ -223,6 +276,7 @@ function ExperienceDialog({
                 <label htmlFor="endYear">Year</label>
                 <select 
                   id='endYear' 
+                  ref={endYearRef}
                   name='endYear'
                   defaultValue={endYear}
                   autoComplete="off"
@@ -246,6 +300,7 @@ function ExperienceDialog({
                 <label htmlFor="endMonth">Month</label>
                 <select 
                   id='endMonth' 
+                  ref={endMonthRef}
                   name='endMonth'
                   defaultValue={endMonth}
                   autoComplete="off"
@@ -274,11 +329,11 @@ function ExperienceDialog({
             <label htmlFor="responsibilities">Responsibilities</label>
             <textarea
               id="responsibilities"
+              ref={responsibilitiesRef}
               name="responsibilities"
               defaultValue={responsibilities}
               autoComplete="off"
               required
-
             >
             </textarea>
           </div>
@@ -287,6 +342,7 @@ function ExperienceDialog({
 
         <div className="save">
           <h2 
+          ref={errorRef}
             className='error'
             style={
               {

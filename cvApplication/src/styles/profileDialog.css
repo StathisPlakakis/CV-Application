@@ -4,10 +4,11 @@ dialog {
   background-color: #ffffff;
   width: 100%;
   border-radius: 1rem;
-  position: relative;
+  position: fixed;
   border: none;
   margin-top: 0;
   top:3rem;
+  
   max-height: 80vh;
 }
 
