@@ -36,8 +36,8 @@ function EducationDialog({
       onClose()
       errorRef.current.style.display = 'none'
       schoolRef.current.value = ''
-      degree.current.value = ''
-      field.current.value = '' 
+      degreeRef.current.value = ''
+      fieldRef.current.value = '' 
       startMonthRef.current.value = 'January' 
       startYearRef.current.value = '2024' 
       endMonthRef.current.value = 'January' 
@@ -168,7 +168,7 @@ function EducationDialog({
               defaultValue={school}
               autoComplete="off"
               type="text"
-              id="title"
+              id="school"
               ref={schoolRef}
               name="school"
               required
