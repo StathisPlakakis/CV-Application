@@ -1,6 +1,6 @@
 import { useState} from 'react'
-// import EducationDialog from './educationDialog'
-// import EducationItem from './educationItem'
+import EducationDialog from './educationDialog'
+import EducationItem from './educationItem'
 import '../styles/education.css'
 
 
@@ -112,7 +112,7 @@ function Education({onSavedActive, onSavedDisactive}) {
         <h2>Education</h2>
       </div>
       <div className='educationItems' style={{border:'none'}}>
-        {/* {
+        {
           educationItems.map((educationItem) => (
                         <EducationItem 
                           school={educationItem.school}
@@ -129,12 +129,12 @@ function Education({onSavedActive, onSavedDisactive}) {
                           onEducationItemChange={handleEducationItemChange}
                           onEducationItemDelete={handleEducationDelete}
                         />
-        ))} */}
+        ))}
       </div>
       <div className='addEducationItem'>
         <button onClick={handleClickForEducationItemAddition}></button>
       </div>
-      {/* <EducationDialog 
+      <EducationDialog 
         isForAddition={true}
         isOpen={isDialogOpen}
         onClose={handleClickForCloseEducationItemAddition}
@@ -142,7 +142,7 @@ function Education({onSavedActive, onSavedDisactive}) {
         key={keyy}
         onSavedActive={onSavedActive}
         onSavedDisactive={onSavedDisactive}
-      /> */}
+      /> 
     </section>
   )
 }
