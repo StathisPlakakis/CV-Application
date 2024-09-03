@@ -1,0 +1,64 @@
+.educationDeatails {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.educationDeatailsHead {
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.educationDeatailsHead  button.editEducation {
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  background-color: #1e1e1e;
+  outline: none;
+  background-image: url('../../public/svgs/pencil.svg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.experienceDeatailsHead  button.deleteExperience {
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  background-color: #1e1e1e;
+  outline: none;
+  background-image: url('../../public/svgs/trash.svg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.educationDetails {
+  text-align: center;
+  font-size: 1.1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.87);
+  margin-bottom: 1rem;
+}
+
+@media (prefers-color-scheme: light) {
+
+  .educationDeatailsHead  button.editEducation {
+    background-color: #f8f8f8;
+    background-image: url('../../public/svgs/pencil2.svg');
+  }
+
+  .educationDeatailsHead  button.deleteEducation {
+    background-color: #f8f8f8;
+    background-image: url('../../public/svgs/trash2.svg');
+  }
+
+
+  .educationDetails {
+    border-bottom: 1px solid #242424;
+  }
+
+}
